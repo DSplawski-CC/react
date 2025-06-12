@@ -1,5 +1,6 @@
 import styles from  './App.module.css'
 import Header from './components/Header.tsx';
+import { NavLink, Outlet } from 'react-router';
 
 function App() {
   const title = 'Movie DB';
@@ -9,19 +10,23 @@ function App() {
       <Header text={title} />
 
       <nav>
-        <a
+        <NavLink
+          to="/movies"
+          end
+          className={({isActive}) => `${styles.nav} ${isActive ? styles.active : ''}`}
           data-testid="movies-link"
-          className={styles.nav}
-          // routerLink="/movies"
-          // routerLinkActive="underline font-extrabold"
-        >Movies</a>
+        >
+          Movies
+        </NavLink>
       </nav>
 
       <div
         className={styles.separator}
         role="separator"
         aria-label="Divider"
-      ></div>
+      />
+
+      <Outlet />
     </div>
   )
 }

@@ -3,14 +3,16 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router';
+import MoviesList from './movies/movies-list/MoviesList.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/sign-in" element={<App />} />
+        <Route path="/" element={<App />}>
+          <Route path="/movies" element={<MoviesList />} />
+        </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
