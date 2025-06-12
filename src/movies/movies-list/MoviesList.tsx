@@ -1,21 +1,20 @@
 import styles from './MoviesList.module.css';
+import PageNavigation from './PageNavigation.tsx';
+import { useState } from 'react';
 
 export default function MoviesList() {
+  const [page, setPage] = useState(1);
+  const [totalPage] = useState(5);
+
+  const onPageChange = (page: number) => { setPage(page); };
+
   return (
     <div className={styles.movieListContent}>
-      <div className={styles.navigationContainer}>
-        <button className={styles.pageButton} disabled={false}>
-          Previous
-        </button>
-
-        <div>
-          Page: <b>{ 1 }</b> of { 1000 }
-        </div>
-
-        <button className={styles.pageButton} disabled={true}>
-          Next
-        </button>
-      </div>
+      <PageNavigation
+        currentPage={page}
+        totalPages={totalPage}
+        onPageChange={onPageChange}
+      />
     </div>
   )
 }
