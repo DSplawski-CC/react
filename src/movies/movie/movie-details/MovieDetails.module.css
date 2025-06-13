@@ -1,0 +1,48 @@
+.movieDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .metadata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #364153;
+    row-gap: 0.25rem;
+
+    .yearTime {
+      display: flex;
+      column-gap: 2rem;
+    }
+
+    .ratingContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-inline: 0.5rem;
+      column-gap: 0.25rem;
+
+      .ratingValue {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .overview {
+    padding-top: 1.25rem;
+    font-size: 1rem;
+    text-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
