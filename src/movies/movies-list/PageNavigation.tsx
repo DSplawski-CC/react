@@ -1,4 +1,4 @@
-import styles from './MoviesList.module.css';
+import styles from './PageNavigation.module.css';
 
 interface PageNavigationProps {
   currentPage: number;
