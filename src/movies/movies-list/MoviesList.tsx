@@ -2,6 +2,7 @@ import styles from './MoviesList.module.css';
 import PageNavigation from './PageNavigation.tsx';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { getYearFromDate } from '../../utils/date.tsx';
 
 interface Movie {
   id: number;
@@ -41,16 +42,13 @@ export default function MoviesList() {
   }]);
 
   const onPageChange = (page: number) => { setPage(page); };
-  const formattedReleaseDate = (date: string) => {
-    return String(new Date(date).getFullYear());
-  }
 
   const movieComponents = moviesList.map((movie) => (
     <div key={movie.id} className={styles.movieItem}>
       <Link className={styles.movieLink} to={`/movie/${movie.id}`}>
         <div className={styles.movieItem}>
           <div className={styles.movieTitle}>{movie.title}</div>
-          <div className={styles.movieReleaseDate}>({formattedReleaseDate(movie.release_date)})</div>
+          <div className={styles.movieReleaseDate}>({getYearFromDate(movie.release_date)})</div>
           <div className={styles.movieRating}>{movie.vote_average}</div>
         </div>
       </Link>
