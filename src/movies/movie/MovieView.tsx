@@ -1,7 +1,7 @@
 import MovieDetails from './movie-details/MovieDetails.tsx';
 
 
-export function Movie() {
+export function MovieView() {
   return (
     <MovieDetails movie={{
       id: 1,

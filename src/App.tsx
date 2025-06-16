@@ -3,7 +3,7 @@ import Header from './components/Header.tsx';
 import { NavLink, Outlet } from 'react-router';
 
 function App() {
-  const title = 'Movie DB';
+  const title = 'MovieView DB';
 
   return (
     <div className={styles.main}>

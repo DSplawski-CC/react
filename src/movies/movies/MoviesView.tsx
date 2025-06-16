@@ -1,17 +1,16 @@
-import styles from './MoviesList.module.css';
+import styles from './MoviesView.module.css';
 import PageNavigation from './PageNavigation.tsx';
 import { useState } from 'react';
-import { Link } from 'react-router';
-import { getYearFromDate } from '../../utils/date.tsx';
+import MoviesList from './MoviesList.tsx';
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   release_date: string;
   vote_average: number;
 }
 
-export default function MoviesList() {
+export default function MoviesView() {
   const [page, setPage] = useState(1);
   const [totalPage] = useState(5);
   const [moviesList] = useState<Movie[]>([{
@@ -43,18 +42,6 @@ export default function MoviesList() {
 
   const onPageChange = (page: number) => { setPage(page); };
 
-  const movieComponents = moviesList.map((movie) => (
-    <div key={movie.id} className={styles.movieItem}>
-      <Link className={styles.movieLink} to={`/movie/${movie.id}`}>
-        <div className={styles.movieItem}>
-          <div className={styles.movieTitle}>{movie.title}</div>
-          <div className={styles.movieReleaseDate}>({getYearFromDate(movie.release_date)})</div>
-          <div className={styles.movieRating}>{movie.vote_average}</div>
-        </div>
-      </Link>
-    </div>
-  ));
-
   return (
     <div className={styles.movieListContent}>
       <PageNavigation
@@ -64,7 +51,7 @@ export default function MoviesList() {
       />
 
       <div className={styles.movieList}>
-        {movieComponents}
+        <MoviesList movies={moviesList} />
       </div>
     </div>
   )
