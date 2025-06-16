@@ -1,8 +1,8 @@
 import styles from './PageNavigation.module.css';
 
 interface PageNavigationProps {
-  currentPage: number;
-  totalPages: number;
+  currentPage?: number;
+  totalPages?: number;
   onPageChange?: (page: number) => void;
 }
 
@@ -14,8 +14,8 @@ export default function PageNavigation({ currentPage, totalPages, onPageChange }
     <div className={styles.navigationContainer}>
       <button
         className={styles.pageButton}
-        disabled={isPreviousDisabled}
-        onClick={() => onPageChange?.(currentPage - 1)}
+        disabled={isPreviousDisabled || !currentPage || !totalPages}
+        onClick={() => onPageChange?.(currentPage! - 1)}
       >
         Previous
       </button>
@@ -26,8 +26,8 @@ export default function PageNavigation({ currentPage, totalPages, onPageChange }
 
       <button
         className={styles.pageButton}
-        disabled={isNextDisabled}
-        onClick={() => onPageChange?.(currentPage + 1)}
+        disabled={isNextDisabled || !currentPage || !totalPages}
+        onClick={() => onPageChange?.(currentPage! + 1)}
       >
         Next
       </button>

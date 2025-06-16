@@ -1,17 +1,28 @@
 import MovieDetails from './movie-details/MovieDetails.tsx';
+import { useEffect, useState } from 'react';
+import { getMovieDetails, type Movie } from '../movies/MovieApi.ts';
+import { useParams } from 'react-router';
 
 
 export function MovieView() {
-  return (
-    <MovieDetails movie={{
-      id: 1,
-      title: 'Inception',
-      release_date: '2010-07-16',
-      runtime: 148,
-      vote_average: 8.8,
-      vote_count: 2000000,
-      overview: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.'
-    }}
-    />
+  const movieId = useParams()['movieId'];
+  const [movie, setMovie] = useState<Movie | undefined>(undefined);
+
+  useEffect(() => {
+    let ignore = false;
+    setMovie(undefined);
+    getMovieDetails(movieId).then(result => {
+      if (!ignore) {
+        setMovie(result);
+      }
+    });
+
+    return () => {
+      ignore = true;
+    };
+  }, [movieId]);
+
+  return movie && (
+    <MovieDetails movie={movie}/>
   )
 }
