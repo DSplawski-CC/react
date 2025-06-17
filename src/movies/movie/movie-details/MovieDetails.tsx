@@ -1,6 +1,7 @@
 import styles from './MovieDetails.module.css';
 import { getYearFromDate } from '../../../utils/date.tsx';
 import StarIcon from '../../../shared/StarIcon.tsx';
+import type { MovieDto } from '../../movies/MovieApi.ts';
 
 
 function ratingFormat(value: number) {
@@ -8,7 +9,7 @@ function ratingFormat(value: number) {
 }
 
 interface MovieDetailsProps {
-  movie: any;
+  movie: MovieDto;
 }
 
 export default function MovieDetails({movie}: MovieDetailsProps) {

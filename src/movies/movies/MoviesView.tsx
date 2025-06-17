@@ -2,14 +2,14 @@ import styles from './MoviesView.module.css';
 import PageNavigation from './PageNavigation.tsx';
 import { useEffect, useState } from 'react';
 import MoviesList from './MoviesList.tsx';
-import { getMoviesPopular, type MoviesResponse } from './MovieApi.ts';
+import { getMoviesPopular, type MoviesDto } from './MovieApi.ts';
 
 
 
 export default function MoviesView() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
-  const [moviesResponse, setMoviesResponse] = useState<MoviesResponse | undefined>(undefined);
+  const [moviesResponse, setMoviesResponse] = useState<MoviesDto | undefined>(undefined);
 
   useEffect(() => {
     let ignore = false;

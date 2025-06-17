@@ -1,29 +1,29 @@
-export interface Movie {
+export interface MovieDto {
   id: number;
   title: string;
   release_date: string;
   vote_average: number;
 }
 
-export interface MoviesResponse {
+export interface MoviesDto {
   page: number;
-  results: Movie[];
+  results: MovieDto[];
   total_pages: number;
   total_results: number;
 }
 
 export async function getMoviesPopular(page = 1) {
-  return await (await fetch(`${import.meta.env.VITE_API_URL}/movies/popular?page=${page}`, {
+  const result = await fetch(`${import.meta.env.VITE_API_URL}/movies/popular?page=${page}`, {
     credentials: 'include',
-  })).json() as MoviesResponse;
+  });
+
+  return result.json() as MoviesDto;
 }
 
 export async function getMovieDetails(movieId: number) {
-  if (!movieId) {
-    return null;
-  }
-
-  return await (await fetch(`${import.meta.env.VITE_API_URL}/movies/${movieId}`, {
+  const result = await fetch(`${import.meta.env.VITE_API_URL}/movies/${movieId}`, {
     credentials: 'include',
-  })).json() as Movie;
+  });
+
+  return result.json() as MovieDto;
 }

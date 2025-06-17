@@ -1,10 +1,10 @@
 import styles from './MoviesList.module.css';
 import { Link } from 'react-router';
 import { getYearFromDate } from '../../utils/date.tsx';
-import type { Movie } from './MovieApi.ts';
+import type { MovieDto } from './MovieApi.ts';
 
 interface MoviesListProps {
-  movies?: Movie[];
+  movies?: MovieDto[];
 }
 
 export default function MoviesList({movies}: MoviesListProps) {

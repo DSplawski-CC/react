@@ -1,0 +1,48 @@
+.reviewContainer {
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.5rem;
+}
+
+.reviewTopInfo {
+  display: flex;
+  justify-content: space-between;
+  color: #6a7282;
+  font-size: 0.875rem;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.ratingIcon {
+  display: flex;
+  margin-left: 0.25rem;
+}
+
+.ratingText {
+  margin-left: 0.25rem;
+}
+
+.reviewTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.reviewContent {
+  color: #364153;
+  margin-top: 0.5rem;
+  text-wrap: wrap;
+}
+
+.reviewAuthor {
+  color: #6a7282;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
