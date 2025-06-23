@@ -4,7 +4,7 @@ import { FormCtx, type FormCtxValue } from './FormContext.ts';
 
 export function useFormField<T extends Record<string, unknown>,
   K extends keyof T>(name: K) {
-  const ctx = useContext<FormCtxValue<T> | null>(FormCtx);
+  const ctx = useContext<FormCtxValue<T>>(FormCtx);
 
   if (!ctx) {
     throw new Error('useFormField must be inside <FormProvider>');

@@ -1,6 +1,6 @@
 // Field.tsx -----------------------------------------------------------------
 import React, { type InputHTMLAttributes, memo, useRef } from 'react';
-import { useFormField } from './FormField.tsx';
+import { useFormField } from './useFormField.ts';
 
 interface FieldProps<
   T extends Record<string, unknown>,
