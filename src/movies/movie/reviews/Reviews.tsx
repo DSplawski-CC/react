@@ -10,7 +10,7 @@ interface UseReviewsProps {
 
 function useReviews({ movieId }: UseReviewsProps) {
   const [reviews, setReviews] = useState<ReviewDto[]>([]);
-  const loadData = useCallback(() => () => {
+  const loadData = useCallback(() => {
     getMovieReviews(movieId).then((reviews) => {
       setReviews(reviews);
     });
