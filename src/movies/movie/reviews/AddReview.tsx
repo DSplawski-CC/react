@@ -1,8 +1,5 @@
 import { FormProvider } from '../../../shared/form/FormProvider.tsx';
 import { Field } from '../../../shared/form/Field.tsx';
-import { useEffect, useRef, useState } from 'react';
-import type { ReviewDto } from '../../../types.ts';
-import { getMovieReviews, postMovieReview } from './ReviewsApi.ts';
 
 export interface AddReviewData {
   rating: number;

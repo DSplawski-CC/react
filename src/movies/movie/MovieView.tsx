@@ -10,7 +10,6 @@ import type { ReviewDataDto } from '../../types.ts';
 
 export function MovieView() {
   const movieId = Number(useParams()['movieId']);
-  const isUptoDate = useState(false);
   const [movie, setMovie] = useState<MovieDto | undefined>(undefined);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import Review from './Review.tsx';
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { MovieIdContext } from '../MovieContext.ts';
 import { getMovieReviews } from './ReviewsApi.ts';
 import type { ReviewDto } from '../../../types.ts';
