@@ -6,10 +6,6 @@ export function useFormField<T extends Record<string, unknown>,
   K extends keyof T>(name: K) {
   const ctx = useContext<FormCtxValue<T>>(FormCtx);
 
-  if (!ctx) {
-    throw new Error('useFormField must be inside <FormProvider>');
-  }
-
   const { store } = ctx;
 
   const value = useSyncExternalStore(
