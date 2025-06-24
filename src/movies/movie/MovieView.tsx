@@ -7,10 +7,12 @@ import { MovieIdContext } from './MovieContext.ts';
 import AddReview, { type AddReviewData } from './reviews/AddReview.tsx';
 import { postMovieReview } from './reviews/ReviewsApi.ts';
 import type { ReviewDataDto } from '../../types.ts';
+import { useReviews } from './reviews/useReviews.ts';
 
 export function MovieView() {
   const movieId = Number(useParams()['movieId']);
   const [movie, setMovie] = useState<MovieDto | undefined>(undefined);
+  const [reviews, reloadReviews] = useReviews({ movieId });
 
   useEffect(() => {
     let ignore = false;
@@ -36,13 +38,14 @@ export function MovieView() {
         email: review.email,
       }
     }
-    postMovieReview(movieId, addReviewDto).then()
+    await postMovieReview(movieId, addReviewDto);
+    reloadReviews();
   }
 
   return movie && (
     <MovieIdContext value={movieId}>
       <MovieDetails movie={movie}/>
-      <Reviews />
+      <Reviews reviews={reviews}/>
       <AddReview onSubmit={handleSubmitReview}/>
     </MovieIdContext>
   )
