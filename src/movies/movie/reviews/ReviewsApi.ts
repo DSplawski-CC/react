@@ -13,6 +13,9 @@ export async function postMovieReview(movieId: number, review: ReviewDataDto) {
   const result = await fetch(`${import.meta.env.VITE_API_URL}/movies/${movieId}/reviews`, {
     credentials: 'include',
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(review),
   });
 
