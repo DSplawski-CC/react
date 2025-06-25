@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { createFormStore } from './form-store.ts';
 import { FormCtx, type FormCtxValue } from './form-context.ts';
-
+import styles from './FormProvider.module.css';
 
 
 interface FormProviderProps<T extends Record<string, unknown>> extends PropsWithChildren {
@@ -27,8 +27,12 @@ export function FormProvider<T extends Record<string, unknown>>({ initialValues,
 
   return (
     <FormCtx value={ctxValue}>
-      {children}
-      <button onClick={handleSubmit}>Submit</button>
+      <div className={styles.formContainer}>
+        <div className="fieldContainer">
+          {children}
+        </div>
+      </div>
+      <button className={styles.submitBtn} onClick={handleSubmit}>Submit</button>
     </FormCtx>
   );
 }

@@ -19,7 +19,7 @@ function FieldInner<
 
 
   return (
-    <div style={{ marginBottom: '0.5rem' }}>
+    <div style={{ display:'contents', marginBottom: '0.5rem' }}>
       <label style={{ display: 'block' }}>{label}</label>
       <input
         ref={inputRef}
